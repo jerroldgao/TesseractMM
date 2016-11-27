@@ -1,0 +1,113 @@
+
+
+import java.util.*;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+
+import javax.persistence.criteria.CriteriaBuilder;
+/**
+ * Created by Yirugao on 11/12/16.
+ */
+public class App
+{
+	//You may just use @SuppressWarnings(�unchecked�) to suppress unchecked warnings in Java.
+	@SuppressWarnings({ "unchecked" })
+	public static void main(String[] args) throws Exception
+	{
+      SessionFactory sessionFactory = null;
+		
+		//Configure setting
+		final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
+		try
+		{
+			Configuration configuration = new Configuration();
+			sessionFactory = configuration.configure().buildSessionFactory(registry);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			StandardServiceRegistryBuilder.destroy(registry);
+		}
+		 Session session = sessionFactory.openSession();
+		 session.getTransaction();
+
+        /**Item 1:*/
+        String item1 = "from Person";
+        Query query1 = session.createQuery(item1);
+        List<Person> personList = query1.list();
+        for (Person p : personList){
+            System.out.println(p.getName()+" lives in " +p.getAddress());
+        }
+
+        /**Item 2:*/
+        String item2 = "from Student";
+		Query query2 = session.createQuery(item2);
+		List<Student> studentList = query2.list();
+		for (Student s : studentList){
+			System.out.println(s.getName());
+		}
+
+		/**Item 3:*/
+		String item3 = "from Student";
+		Query query3 = session.createQuery(item3);
+		List<Student> studentList1 = query3.list();
+		for (Student s:studentList1){
+			System.out.println("The mentor of "+s.getName()+" is "+s.getInstructor().getName());
+		}
+
+		/**Item 4:*/
+		String item4 = "select i.mentorOf from Instructor i where i.name ='Min Tuyet'";
+		Query query4 = session.createQuery(item4);
+		List<Student> studentList3 = query4.list();
+		System.out.print("Dr. Min Tuyet teach students: ");
+		for (Student s: studentList3){
+			System.out.print(s.getName()+",");
+		}
+
+
+		/**Item 5:*/
+		String item5 = "select i.mentorOf from Instructor i where i.name ='Min Tuyet'";
+		Query query5 = session.createQuery(item5);
+		List<Student> studentList4 = query5.list();
+		double sum = 0;
+		for (Student s : studentList4){
+			sum+= Double.parseDouble(s.getGpa());
+		}
+		if (studentList4.size()!=0){
+			System.out.print("Dr. Min Tuyet teach students has average GPA with: " +sum/studentList4.size());
+		}
+
+		/**Item 6:*/
+		Person person = new Person("480293439","Briggs Jason","215, North Hyland Avenue","1975-01-15");
+		session.save(person);
+		session.beginTransaction().commit();
+
+
+		/**Item 7:*/
+		String item7 = "select i from Instructor i where i.name ='Min Tuyet'";
+        Query query7 = session.createQuery(item7);
+        Instructor instructor = (Instructor) query7.list().get(0);
+        instructor.setSalary(Integer.parseInt(instructor.getSalary())*1.1+"");
+        session.update(instructor);
+        session.beginTransaction().commit();
+
+        /**Item 8:*/
+        String item8 = "Delete from Student where id = '118784412'";
+        Query query8 = session.createQuery(item8);
+        query8.executeUpdate();
+
+
+		session.close();
+	}
+
+}
+
+
+
+
