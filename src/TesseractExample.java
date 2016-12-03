@@ -27,7 +27,7 @@ public class TesseractExample {
         List<Word> test = new ArrayList<>();
         System.out.println(img.getWidth());
         System.out.println(img.getHeight());
-//        ITesseract instance = new Tesseract();  // JNA Interface Mapping
+        ITesseract instance = new Tesseract();  // JNA Interface Mapping
 //        for (int col=0; col<DIVIDEWIDTH;col++){
 //            for (int row=0; row<DIVIDEHEIGHT;row++){
 ////                try {
@@ -39,14 +39,13 @@ public class TesseractExample {
 //            }
 //
 //        }
-//        instance.setLanguage("eng");
-//
-//        instance.setTessVariable("tessedit_char_whitelist", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
-////        instance.setDatapath("tessdata");
-//        test.addAll(instance.getWords(img,3));
-//        for (Word word : test){
-////            System.out.println(word.getText()+ " has position at: " +word.getBoundingBox());
-//        }
+        instance.setLanguage("eng");
+
+        instance.setTessVariable("tessedit_char_whitelist", "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+        test.addAll(instance.getWords(img,3));
+        for (Word word : test){
+            System.out.println(word.getText()+ " has position at: " +word.getBoundingBox());
+        }
 
     }
 
