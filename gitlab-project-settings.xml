@@ -16,6 +16,18 @@
           <option name="namespace" value="gaoyr" />
           <option name="sshUrl" value="git@git.ece.iastate.edu:gaoyr/MinHash.git" />
         </ProjectDto>
+        <ProjectDto>
+          <option name="httpUrl" value="https://git.ece.iastate.edu/gaoyr/QueryProcess.git" />
+          <option name="name" value="QueryProcess" />
+          <option name="namespace" value="gaoyr" />
+          <option name="sshUrl" value="git@git.ece.iastate.edu:gaoyr/QueryProcess.git" />
+        </ProjectDto>
+        <ProjectDto>
+          <option name="httpUrl" value="https://git.ece.iastate.edu/gaoyr/WikiCrawler.git" />
+          <option name="name" value="WikiCrawler" />
+          <option name="namespace" value="gaoyr" />
+          <option name="sshUrl" value="git@git.ece.iastate.edu:gaoyr/WikiCrawler.git" />
+        </ProjectDto>
       </list>
     </option>
   </component>

@@ -10,8 +10,12 @@
           <option name="url" value="https://github.com/jerroldgao/DEC1606_LittleMermaid.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://git.ece.iastate.edu/gaoyr/QueryProcess.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="$USER_HOME$/Desktop/class_Fall2016/CprE492/app" />
+    <option name="cloneParentDir" value="$USER_HOME$/Desktop/class_Fall2016/ComS435/proj4" />
   </component>
 </application>
