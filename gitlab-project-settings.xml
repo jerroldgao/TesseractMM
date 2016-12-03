@@ -1,0 +1,22 @@
+<application>
+  <component name="SettingsState">
+    <option name="host" value="https://git.ece.iastate.edu/" />
+    <option name="token" value="XVYSXCjheUosswyMQRpW" />
+    <option name="projects">
+      <list>
+        <ProjectDto>
+          <option name="httpUrl" value="https://git.ece.iastate.edu/gaoyr/bloomfilter.git" />
+          <option name="name" value="BloomFilter" />
+          <option name="namespace" value="gaoyr" />
+          <option name="sshUrl" value="git@git.ece.iastate.edu:gaoyr/bloomfilter.git" />
+        </ProjectDto>
+        <ProjectDto>
+          <option name="httpUrl" value="https://git.ece.iastate.edu/gaoyr/MinHash.git" />
+          <option name="name" value="MinHash" />
+          <option name="namespace" value="gaoyr" />
+          <option name="sshUrl" value="git@git.ece.iastate.edu:gaoyr/MinHash.git" />
+        </ProjectDto>
+      </list>
+    </option>
+  </component>
+</application>
