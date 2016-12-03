@@ -27,4 +27,15 @@ public class Room {
     public void setBoundingBox(Rectangle boundingBox) {
         this.boundingBox = boundingBox;
     }
+    public boolean equals(Room room){
+        if(room.roomNumber.equals(roomNumber)){
+            return true;
+        }
+        return false;
+    }
+    public int hashCode(Room room){
+        int code = 19;
+        code += 31*room.roomNumber.hashCode();
+        return code;
+    }
 }
